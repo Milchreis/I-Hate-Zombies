@@ -1,7 +1,7 @@
 I Hate Zombies
 ==============
 
-![alt text](https://github.com/MilchReis/I-Hate-Zombies/imgs/logo.png "Logo")
+![alt text](https://raw.githubusercontent.com/MilchReis/I-Hate-Zombies/master/imgs/logo.png "Logo")
 
 A simple platformer game for HTML5. This project is an approach to try and evaluate the [phaser javascript library](http://phaser.io/getting-started-js.php "phaser js") for 2D games.
 
