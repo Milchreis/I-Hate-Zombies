@@ -3,7 +3,7 @@ I Hate Zombies
 
 ![alt text](http://milchreis.github.io/I-Hate-Zombies/assets/images/logo.png "Logo")
 
-A simple HTML5 platformer game. Shoot, jump and stay alive. This project was build to trying out the [phaser](http://phaser.io/getting-started-js.php "phaser js") javascript library for 2D games. The small result is here out now.
+A simple HTML5 platformer game. Shoot, jump and stay alive. This project was build to trying out the [phaser](http://phaser.io/ "phaser js") javascript library for 2D games. The small result is here out now.
 
 
 ## Controls and Game ##
