@@ -8,7 +8,7 @@ A simple HTML5 platformer game. Shoot, jump and stay alive. This project was bui
 
 ## Controls and Game ##
 
-The controls are very simple. Use the `RIGHT` button for _shooting_ and _starting_ the game and the `UP` button for _jumping_ around. The goal of the game is to stay alive as long as you can.
+The controls are very simple. Use the `RIGHT` button for _shooting_ and _starting_ the game and the `UP` button (or `SPACEBAR`) for _jumping_ around. The goal of the game is to stay alive as long as you can.
 
 
 ## Play it ##
@@ -25,5 +25,8 @@ My special thanks goes to Arne Blumentritt for the beautiful clouds, Jesse Freem
 ## Changelog
 **1.0.0**
 * Complete rewrite after some experience with Javascript
-* Update to the new PhaseJS-Version (2.7.7)
+* Update to the new PhaserJS-Version (2.7.7)
 * Animation for player jump added
+* Scale game canvas to window size
+* Spacebar for jumps
+* Mouse-Input: Complete left side for jumps and complete right side for shooting
