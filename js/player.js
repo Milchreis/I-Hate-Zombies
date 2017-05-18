@@ -14,7 +14,7 @@ zombiegame.Player = function(game) {
 
   // set up frames for animation
   this.shootAnimation = this.sprite.animations.add(
-    'shooting', [20, 21, 22, 23], 15, false);
+    'shooting', [9, 10, 11], 15, false);
 
   this.runAnimation = this.sprite.animations.add(
     'right', [1, 2, 3, 4, 5, 6, 7, 8], 20, true);

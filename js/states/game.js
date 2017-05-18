@@ -136,11 +136,12 @@ zombiegame.rungame.prototype = {
     onGameOver: function() {
       if(!this.player.isDead) {
         zombiegame.rungame.player.die();
+        this.buttonLock = this.game.time.now + 700;
       }
 
       // Decrease the scrolling speed
       if(zombiegame.rungame.gamespeed > 0) {
-        zombiegame.rungame.gamespeed -= 0.8;
+        zombiegame.rungame.gamespeed -= 1.5;
         this.houses.setAll("body.velocity.x", -zombiegame.rungame.gamespeed, true);
         this.zombies.setAll("body.velocity.x", -zombiegame.rungame.gamespeed, true);
       }
@@ -169,9 +170,12 @@ zombiegame.rungame.prototype = {
     checkControls: function() {
 
       if(this.player.isDead) {
-        if(this.cursors.right.isDown
-          || (this.game.input.pointer1.isDown)
-          || (this.game.input.mousePointer.isDown)) {
+        if(this.game.time.now > this.buttonLock &&
+          (this.cursors.right.isDown
+          || this.spacebar.isDown
+          || this.cursors.up.isDown
+          || this.game.input.pointer1.isDown
+          || this.game.input.mousePointer.isDown)) {
 
           this.game.state.start("Menu");
         }
