@@ -18,9 +18,25 @@ The game runs good on modern browsers. Even on mobile browsers it works great. P
 **[Play it here](http://milchreis.github.io/I-Hate-Zombies/ "download-address")**
 
 
+## Local execution ##
+
+If you want to start the game on your computer you need to download the repository and start a local webserver on this machine. For example you can use the python SimpleHTTPServer as described below (Requires a installation of python).
+ * Download the repository [here](https://github.com/Milchreis/I-Hate-Zombies/archive/master.zip)
+ * Extract the zip file
+ * Go into the extracted directory
+ * Open up a terminal here (CMD or shell)
+ * Start the server with: python -m SimpleHTTPServer
+ * Open a browser and go to http://localhost:8000
+
+
 ## Thanks ##
 
 My special thanks goes to Arne Blumentritt for the beautiful clouds, Jesse Freemann for the free human and zombie sprites and last but not least nosoapradio.us and freesound.org for the nice free sounds.
+
+
+## Contributions ##
+
+Feel free to add issues with new ideas or bugs or fork the complete game to bring in your personal style. 
 
 ## Changelog
 **1.0.0**
