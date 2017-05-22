@@ -18,6 +18,7 @@ zombiegame.preload.prototype = {
 
     this.game.load.image('shootBtn', 'assets/images/shoot.png');
     this.game.load.image('jumpBtn', 'assets/images/jump.png');
+    this.game.load.spritesheet('musicButton', 'assets/images/musicButton.png', 64, 42);
 
     this.game.load.image('blood', 'assets/images/blood.png');
     this.game.load.image('bullet1', 'assets/images/bullet1.png');

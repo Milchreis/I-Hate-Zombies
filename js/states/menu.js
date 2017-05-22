@@ -43,8 +43,11 @@ zombiegame.menu.prototype = {
 
     this.cursors = this.game.input.keyboard.createCursorKeys();
 
-    // overlay for a better look
-    this.game.add.sprite(0, 0, 'overlay');
+    // Start button with overlay for a better look
+    this.startBtn = this.game.add.button(0, 0, 'overlay', this.onStartGame, this, 2, 1, 0);
+
+    // Button for toggle music
+    this.musicBtn = this.game.add.button(700, 50, 'musicButton', this.onMusicToggle, this, 1, 1, 1);
 
     if(this.game.model.music === null) {
       this.game.model.music = this.game.add.audio('music', 0.7, true);
@@ -64,12 +67,24 @@ zombiegame.menu.prototype = {
     zombiegame.world.rotateClouds(this.clouds);
   },
 
-  checkInput: function() {
-    if(this.game.input.mousePointer.isDown || this.game.input.pointer1.isDown ||
-      this.cursors.right.isDown) {
-      this.cursors.right.isDown = false;
+  onMusicToggle: function() {
+    if(zombiegame.game.model.music.isPlaying) {
+      zombiegame.game.model.music.stop();
+      this.musicBtn.setFrames(0, 0, 0);
+    } else {
+      this.game.model.music.play('', 10, 1, true);
+      this.musicBtn.setFrames(1, 1, 1);
+    }
+  },
 
-      this.game.state.start("Game");
+  onStartGame: function() {
+    this.game.state.start("Game");
+  },
+
+  checkInput: function() {
+    if(this.cursors.right.isDown || this.cursors.up.isDown) {
+      this.cursors.right.isDown = false;
+      this.onStartGame();
     }
   },
 
