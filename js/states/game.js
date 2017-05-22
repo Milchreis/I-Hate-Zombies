@@ -35,13 +35,11 @@ zombiegame.rungame.prototype = {
       this.bat = zombiegame.rungame.bat
 
       // houses
-      this.houses = zombiegame.world.createHouse(230, 290, 'h2', null, zombiegame.rungame.gamespeed);
+      this.houses = zombiegame.world.createHouse(5, 260, 'h1', null, zombiegame.rungame.gamespeed);
       zombiegame.world.createHouse(230, 290, 'h2', this.houses, zombiegame.rungame.gamespeed);
-      zombiegame.world.createHouse(5, 260, 'h1', this.houses, zombiegame.rungame.gamespeed);
       zombiegame.world.createHouse(400, 270, 'h1', this.houses, zombiegame.rungame.gamespeed);
       zombiegame.world.createHouse(600, 220, 'h1', this.houses, zombiegame.rungame.gamespeed);
-      zombiegame.world.createHouse(900, 280, 'h2', this.houses, zombiegame.rungame.gamespeed);
-      zombiegame.world.createHouse(1200, 240, 'h1', this.houses, zombiegame.rungame.gamespeed);
+      zombiegame.world.createHouse(800, 280, 'h2', this.houses, zombiegame.rungame.gamespeed);
 
       // Score
       this.scoreText = this.game.add.bitmapText(30, 30,
@@ -198,9 +196,12 @@ zombiegame.rungame.prototype = {
 
             this.player.jump();
         }
-
         // Release Jump
-        if(this.spacebar.isUp) {
+        else if(this.cursors.up.isUp
+          || this.spacebar.isUp
+          || (this.game.input.pointer1.isUp && this.game.input.pointer1.x < this.game.width/2)
+          || (this.game.input.mousePointer.isUp && this.game.input.mousePointer.x < this.game.width/2)) {
+
           this.player.releaseJump();
         }
 
