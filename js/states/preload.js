@@ -25,6 +25,7 @@ zombiegame.preload.prototype = {
 
     this.game.load.spritesheet('player', 'assets/images/player.png', 34, 34);
     this.game.load.spritesheet('zombie', 'assets/images/z1.png', 22, 30);
+    this.game.load.spritesheet('bat', 'assets/images/bat.png', 11, 6);
     this.game.load.bitmapFont('font1', 'assets/fonts/font.png',
       'assets/fonts/font.fnt');
 

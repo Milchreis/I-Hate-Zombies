@@ -20,8 +20,8 @@ zombiegame.rungame.prototype = {
       this.cursors = this.game.input.keyboard.createCursorKeys();
       this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-      // Show the background
-      zombiegame.world.drawBackground();
+      // Show the backgroundzombiegame.rungame.batzombiegame.rungame.bat
+      zombiegame.world.drawBackground();zombiegame.rungame.bat
 
       // Show the clouds
       this.clouds = zombiegame.world.createClouds();
@@ -29,6 +29,10 @@ zombiegame.rungame.prototype = {
       // Player object
       zombiegame.rungame.player = new zombiegame.Player(this.game);
       this.player = zombiegame.rungame.player
+
+      // Bat object
+      zombiegame.rungame.bat = new zombiegame.Bat(this.game);
+      this.bat = zombiegame.rungame.bat
 
       // houses
       this.houses = zombiegame.world.createHouse(230, 290, 'h2', null, zombiegame.rungame.gamespeed);
@@ -78,6 +82,9 @@ zombiegame.rungame.prototype = {
       // Collide the player with houses
       this.game.physics.arcade.collide(this.player.sprite, this.houses);
 
+      // Collide the bat with houses
+      this.game.physics.arcade.collide(this.bat.sprite, this.houses);
+
       // Collide the zombies with houses
       this.game.physics.arcade.collide(this.zombies, this.houses);
 
@@ -100,6 +107,8 @@ zombiegame.rungame.prototype = {
         this.player.weapon.onHit);
 
       this.player.update();
+
+      this.bat.update();
 
       // Update score until the player dies
       if(!this.player.isDead) {
