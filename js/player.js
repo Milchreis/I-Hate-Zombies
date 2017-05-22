@@ -47,22 +47,28 @@ zombiegame.Player.prototype.jump = function() {
   }
 }
 
+zombiegame.Player.prototype.releaseJump = function() {
+  if(this.sprite.body.velocity.y < 0) {
+    this.sprite.body.velocity.y = 0;
+  }
+}
+
 zombiegame.Player.prototype.shoot = function() {
     this.weapon.onShoot(this.sprite);
 }
 
 zombiegame.Player.prototype.update = function() {
-    this.weapon.update();
+  this.weapon.update();
 
-    if(!this.sprite.body.touching.down) {
-      this.sprite.animations.play('jump');
-    }
+  if(!this.sprite.body.touching.down) {
+    this.sprite.animations.play('jump');
+  }
 }
 
 zombiegame.Player.prototype.die = function() {
-    this.isDead = true;
-    zombiegame.rungame.bloodEmitter.at(this.sprite);
-    zombiegame.rungame.bloodEmitter.start(true, 2000, null, 50);
-    this.sprite.visible = false;
-    this.deadSound.play();
+  this.isDead = true;
+  zombiegame.rungame.bloodEmitter.at(this.sprite);
+  zombiegame.rungame.bloodEmitter.start(true, 2000, null, 50);
+  this.sprite.visible = false;
+  this.deadSound.play();
 }

@@ -190,6 +190,11 @@ zombiegame.rungame.prototype = {
             this.player.jump();
         }
 
+        // Release Jump
+        if(this.spacebar.isUp) {
+          this.player.releaseJump();
+        }
+
         // Shoot
         if(this.cursors.right.isDown
             || (this.game.input.pointer1.isDown && this.game.input.pointer1.x > this.game.width/2)
