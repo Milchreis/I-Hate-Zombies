@@ -10,7 +10,7 @@ zombiegame.Highscore = function() {
   this.saveScore = function() {
     if(this.score > this.best) {
       this.best = this.score;
-      window.localStorage.setItem('score.best', this.best);
+      localStorage.setItem('score.best', this.best);
     }
   };
 
