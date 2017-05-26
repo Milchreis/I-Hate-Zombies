@@ -5,6 +5,7 @@ zombiegame.rungame = function(game) {
   this.player = null;
   this.gamespeed = null;
   this.zombieKillSound = null;
+  this.buttonLock = null;
 };
 
 zombiegame.rungame.prototype = {
@@ -117,9 +118,10 @@ zombiegame.rungame.prototype = {
       this.checkControls();
       this.checkZombieSpawn();
       this.checkHelpButtons();
+      this.updateGameOver();
 
       // if the player is maybe dead? check for gameover if player is outside
-      if(this.player.isDead || this.player.sprite.x < 30) {
+      if(!this.player.isDead && this.player.sprite.x < 30) {
         this.onGameOver();
       }
     },
@@ -136,28 +138,30 @@ zombiegame.rungame.prototype = {
       zombiegame.rungame.bloodEmitter.at(zombie);
       zombiegame.rungame.bloodEmitter.start(true, 2000, null, 50);
       zombie.kill();
-
-      zombiegame.rungame.player.die();
+      zombiegame.rungame.prototype.onGameOver();
     },
 
     onGameOver: function() {
-      if(!this.player.isDead) {
-        zombiegame.rungame.player.die();
-        this.buttonLock = this.game.time.now + 700;
-      }
+      zombiegame.rungame.player.die();
+      zombiegame.game.model.score.saveScore();
+      zombiegame.rungame.buttonLock = zombiegame.game.time.now + 700;
+    },
 
-      // Decrease the scrolling speed
-      if(zombiegame.rungame.gamespeed > 0) {
-        zombiegame.rungame.gamespeed -= 1.5;
-        this.houses.setAll("body.velocity.x", -zombiegame.rungame.gamespeed, true);
-        this.zombies.setAll("body.velocity.x", -zombiegame.rungame.gamespeed, true);
-      }
+    updateGameOver: function() {
+      if(this.player.isDead) {
+        // Decrease the scrolling speed
+        if(zombiegame.rungame.gamespeed > 0) {
+          zombiegame.rungame.gamespeed -= 1.5;
+          this.houses.setAll("body.velocity.x", -zombiegame.rungame.gamespeed, true);
+          this.zombies.setAll("body.velocity.x", -zombiegame.rungame.gamespeed, true);
+        }
 
-      // Show Points
-      this.scoreText.anchor.setTo(0.5, 0.5);
-      this.scoreText.fontSize = 20;
-      this.scoreText.x = this.game.width/2;
-      this.scoreText.y = this.game.height/2;
+        // Show Points
+        this.scoreText.anchor.setTo(0.5, 0.5);
+        this.scoreText.fontSize = 20;
+        this.scoreText.x = this.game.width/2;
+        this.scoreText.y = this.game.height/2;
+      }
     },
 
     checkZombieSpawn: function() {
@@ -177,14 +181,13 @@ zombiegame.rungame.prototype = {
     checkControls: function() {
 
       if(this.player.isDead) {
-        if(this.game.time.now > this.buttonLock &&
+        if(this.game.time.now > zombiegame.rungame.buttonLock &&
           (this.cursors.right.isDown
           || this.spacebar.isDown
           || this.cursors.up.isDown
           || this.game.input.pointer1.isDown
           || this.game.input.mousePointer.isDown)) {
 
-          this.game.model.score.saveScore();
           this.game.state.start("Menu");
         }
 

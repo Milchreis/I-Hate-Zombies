@@ -34,6 +34,7 @@ zombiegame.menu.prototype = {
       16
     );
     this.scoreText.nextBlink = 1000;
+    this.scoreText.visible = false;
 
     this.startText = this.game.add.bitmapText(
       this.game.width / 2,
