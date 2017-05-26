@@ -49,6 +49,12 @@ zombiegame.menu.prototype = {
     // Button for toggle music
     this.musicBtn = this.game.add.button(700, 50, 'musicButton', this.onMusicToggle, this, 1, 1, 1);
 
+    if(this.game.model.isMusicEnabled) {
+      this.musicBtn.setFrames(1, 1, 1);
+    } else {
+      this.musicBtn.setFrames(0, 0, 0);
+    }
+
     if(this.game.model.music === null) {
       this.game.model.music = this.game.add.audio('music', 0.7, true);
       this.game.model.music.play('', 10, 1, true);
@@ -68,12 +74,14 @@ zombiegame.menu.prototype = {
   },
 
   onMusicToggle: function() {
-    if(zombiegame.game.model.music.isPlaying) {
-      zombiegame.game.model.music.stop();
-      this.musicBtn.setFrames(0, 0, 0);
-    } else {
+    zombiegame.game.model.isMusicEnabled = !zombiegame.game.model.isMusicEnabled;
+
+    if(zombiegame.game.model.isMusicEnabled) {
       this.game.model.music.play('', 10, 1, true);
       this.musicBtn.setFrames(1, 1, 1);
+    } else {
+      zombiegame.game.model.music.stop();
+      this.musicBtn.setFrames(0, 0, 0);
     }
   },
 

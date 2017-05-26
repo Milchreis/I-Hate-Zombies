@@ -28,7 +28,8 @@ zombiegame.game.model = {
   spawntime: 1200,
 
   /* Handle for the background music */
-  music: null
+  music: null,
+  isMusicEnabled: true,
 }
 
 zombiegame.game.state.start("Boot");
