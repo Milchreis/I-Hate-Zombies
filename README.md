@@ -25,7 +25,7 @@ If you want to start the game on your computer you need to download the reposito
  * Extract the zip file
  * Go into the extracted directory
  * Open up a terminal here (CMD or shell)
- * Start the server with: python -m SimpleHTTPServer
+ * Start the server with: python -m SimpleHTTPServer  (with Python3 replace SimpleHTTPServer by http.server)
  * Open a browser and go to http://localhost:8000
 
 
@@ -36,7 +36,7 @@ My special thanks goes to Arne Blumentritt for the beautiful clouds, Jesse Freem
 
 ## Contributions ##
 
-Feel free to add issues with new ideas or bugs or fork the complete game to bring in your personal style. 
+Feel free to add issues with new ideas or bugs or fork the complete game to bring in your personal style.
 
 ## Changelog
 **1.0.0**
