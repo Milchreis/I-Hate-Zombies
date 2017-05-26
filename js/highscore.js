@@ -7,6 +7,10 @@ zombiegame.Highscore = function() {
   this.blinkspeed = 1000;
   this.increaseRate = 0.01;
 
+  if(this.best === undefined) {
+    this.best = 0;
+  }
+
   this.saveScore = function() {
     if(this.score > this.best) {
       this.best = this.score;
