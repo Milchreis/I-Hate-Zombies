@@ -42,9 +42,9 @@ zombiegame.rungame.prototype = {
       zombiegame.world.createHouse(800, 280, 'h2', this.houses, zombiegame.rungame.gamespeed);
 
       // Score
+      this.game.model.score.reset();
       this.scoreText = this.game.add.bitmapText(30, 30,
-        'font1', 'Score: ' + this.game.model.score.score, 16);
-      this.game.model.score.score = 0;
+        'font1', 'Score: ' + this.game.model.score.getScore(), 16);
       this.scoreText.anchor.setTo(0, 0);
 
       // Zombies
@@ -110,8 +110,8 @@ zombiegame.rungame.prototype = {
 
       // Update score until the player dies
       if(!this.player.isDead) {
-        this.game.model.score.score += 0.01;
-        this.scoreText.setText("SCORE: " + parseInt(this.game.model.score.score));
+        this.game.model.score.update();
+        this.scoreText.setText("SCORE: " + this.game.model.score.getScore());
       }
 
       this.checkControls();
@@ -184,6 +184,7 @@ zombiegame.rungame.prototype = {
           || this.game.input.pointer1.isDown
           || this.game.input.mousePointer.isDown)) {
 
+          this.game.model.score.saveScore();
           this.game.state.start("Menu");
         }
 

@@ -30,7 +30,7 @@ zombiegame.menu.prototype = {
     this.scoreText = this.game.add.bitmapText(
       30, 30,
       'font1',
-      'Score: ' + parseInt(this.game.model.score.score),
+      'Score: ' + this.game.model.score.getScore() + '\nBest:' + this.game.model.score.getBest(),
       16
     );
     this.scoreText.nextBlink = 1000;

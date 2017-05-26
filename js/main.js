@@ -9,14 +9,8 @@ zombiegame.game.state.add("Game", zombiegame.rungame);
 
 zombiegame.game.model = {
 
-  score: {
-    /* Latest score */
-    score: 0,
-    /* Best score of the last runs */
-    best: 0,
-    /* Time in milliseconds for blinking the text */
-    blinkspeed: 1000,
-  },
+  /* Saves the scores and does logic handling */
+  score: new zombiegame.Highscore(),
 
   /* Speed for the cloud movement */
   cloudspeed: 10,
