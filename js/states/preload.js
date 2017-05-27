@@ -11,6 +11,7 @@ zombiegame.preload.prototype = {
     this.game.load.image('h3', 'assets/images/h3.png');
 
     this.game.load.image('bullet', 'assets/images/bullet.png');
+    this.game.load.image('capsule', 'assets/images/capsule.png');
     this.game.load.image('cloud', 'assets/images/clouds.png');
     this.game.load.image('overlay', 'assets/images/overlay.png');
 
