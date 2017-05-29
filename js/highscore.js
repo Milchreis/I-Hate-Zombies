@@ -3,11 +3,13 @@ var zombiegame = zombiegame || {};
 zombiegame.Highscore = function() {
 
   this.score = 0;
+  this._lastscore = 0;
   this.best = localStorage.getItem('score.best');
   this.blinkspeed = 1000;
   this.increaseRate = 0.01;
+  this.scoreImproved = false;
 
-  if(this.best === undefined) {
+  if(this.best === null) {
     this.best = 0;
   }
 
@@ -15,6 +17,9 @@ zombiegame.Highscore = function() {
     if(this.score > this.best) {
       this.best = this.score;
       localStorage.setItem('score.best', this.best);
+    }
+    if(this.score > this._lastscore) {
+      this.scoreImproved = true;
     }
   };
 
@@ -31,6 +36,8 @@ zombiegame.Highscore = function() {
   };
 
   this.reset = function() {
+    this._lastscore = this.score;
+    this.scoreImproved = false;
     this.score = 0;
   };
 }

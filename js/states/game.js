@@ -21,8 +21,8 @@ zombiegame.rungame.prototype = {
       this.cursors = this.game.input.keyboard.createCursorKeys();
       this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-      // Show the backgroundzombiegame.rungame.batzombiegame.rungame.bat
-      zombiegame.world.drawBackground();zombiegame.rungame.bat
+      // Show the background
+      zombiegame.world.drawBackground();
 
       // Show the clouds
       this.clouds = zombiegame.world.createClouds();

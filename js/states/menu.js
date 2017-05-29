@@ -34,7 +34,7 @@ zombiegame.menu.prototype = {
       16
     );
     this.scoreText.nextBlink = 1000;
-    this.scoreText.visible = false;
+    this.scoreText.visible = true;
 
     this.startText = this.game.add.bitmapText(
       this.game.width / 2,
@@ -63,10 +63,11 @@ zombiegame.menu.prototype = {
   },
 
   update: function() {
-
-    if(this.game.time.now > this.scoreText.nextBlink) {
-      this.scoreText.visible = !this.scoreText.visible;
-      this.scoreText.nextBlink = this.game.time.now + 800;
+    if(this.game.model.score.scoreImproved) {
+      if(this.game.time.now > this.scoreText.nextBlink) {
+        this.scoreText.visible = !this.scoreText.visible;
+        this.scoreText.nextBlink = this.game.time.now + 800;
+      }
     }
 
     this.checkInput();
