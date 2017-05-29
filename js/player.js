@@ -67,6 +67,7 @@ zombiegame.Player.prototype.update = function() {
 
 zombiegame.Player.prototype.die = function() {
   this.isDead = true;
+  this.sprite.kill();
   zombiegame.rungame.bloodEmitter.at(this.sprite);
   zombiegame.rungame.bloodEmitter.start(true, 2000, null, 50);
   this.sprite.visible = false;

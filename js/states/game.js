@@ -135,9 +135,6 @@ zombiegame.rungame.prototype = {
     },
 
     onPlayerZombieCollision: function(playerSprite, zombie) {
-      zombiegame.rungame.bloodEmitter.at(zombie);
-      zombiegame.rungame.bloodEmitter.start(true, 2000, null, 50);
-      zombie.kill();
       zombiegame.rungame.prototype.onGameOver();
     },
 
