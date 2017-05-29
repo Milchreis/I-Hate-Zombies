@@ -53,7 +53,6 @@ zombiegame.Weapon.prototype.onShoot = function(playersprite) {
     // check for next shoot:
     // time to next shoot is over and bullet sprites available
     if(this.game.time.now > this.nextFire && this.bullets.countDead() > 0) {
-
       // if the magazine is not empty
       if(this.remainingBullets > 0) {
         // set up the next earliest moment to shoot
@@ -86,9 +85,12 @@ zombiegame.Weapon.prototype.onShoot = function(playersprite) {
         // magazine is empty
         if(this.remainingBullets == 0) {
           this.nextFire = this.game.time.now + this.reloadTime;
+          playersprite.animations.play('reload');
+          playersprite.animations.currentAnim.onComplete.add(function() {
+            playersprite.animations.play('right');
+          });
           this.reloadSound.play();
         }
-
       }
     }
 }

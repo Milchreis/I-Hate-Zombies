@@ -22,6 +22,9 @@ zombiegame.Player = function(game) {
   this.jumpAnimation = this.sprite.animations.add(
     'jump', [13, 13, 13, 13, 13], 20, false);
 
+  this.reloadAnimation = this.sprite.animations.add(
+    'reload', [72, 73, 74, 75], 5, false);
+
   this.sprite.animations.play('right');
 
   this.jumpAnimation.onComplete.add(function(sprite) {

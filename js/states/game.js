@@ -71,6 +71,7 @@ zombiegame.rungame.prototype = {
       this.game.add.sprite(0, 0, 'overlay');
 
       zombiegame.rungame.zombieKillSound = this.game.add.audio('zombieSound', 0.3);
+      this.player.reloadAnimation.play();
     },
 
     update: function() {
