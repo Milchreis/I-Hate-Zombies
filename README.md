@@ -8,7 +8,7 @@ A simple HTML5 platformer game. Shoot, jump and stay alive. This project was bui
 
 ## Controls and Game ##
 
-The controls are very simple. Use the `RIGHT` button for _shooting_ and _starting_ the game and the `UP` button (or `SPACEBAR`) for _jumping_ around. The goal of the game is to stay alive as long as you can.
+The controls are very simple. Use <kbd>RIGHT</kbd> for **shooting** and <kbd>UP</kbd> (or <kbd>SPACEBAR</kbd>) for **jumping** around. The goal of the game is to stay alive as long as you can.
 
 
 ## Play it ##
@@ -25,7 +25,7 @@ If you want to start the game on your computer you need to download the reposito
  * Extract the zip file
  * Go into the extracted directory
  * Open up a terminal here (CMD or shell)
- * Start the server with: python -m SimpleHTTPServer  (with Python3 replace SimpleHTTPServer by http.server)
+ * Start the server with: `python -m SimpleHTTPServer`  (with Python3 replace `SimpleHTTPServer` by `http.server`)
  * Open a browser and go to http://localhost:8000
 
 
