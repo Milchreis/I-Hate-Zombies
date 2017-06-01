@@ -23,6 +23,10 @@ zombiegame.Weapon = function(game) {
   this.capsuleEmitter.makeParticles('capsule');
   this.capsuleEmitter.gravity.set(-100, 500);
 
+  this.magazineEmitter = this.game.add.emitter(0, 0, 200);
+  this.magazineEmitter.makeParticles('magazine');
+  this.magazineEmitter.gravity.set(-100, 500);
+
   // Sounds
   this.shootSound = game.add.audio('shootSound', 0.5);
   this.reloadSound = game.add.audio('reloadSound', 0.5);
@@ -90,6 +94,9 @@ zombiegame.Weapon.prototype.onShoot = function(playersprite) {
             playersprite.animations.play('right');
           });
           this.reloadSound.play();
+          this.magazineEmitter.x = playersprite.x + 30;
+          this.magazineEmitter.y = playersprite.y;
+          this.magazineEmitter.start(true, 2000, null, 1);
         }
       }
     }

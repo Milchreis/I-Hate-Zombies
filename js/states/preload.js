@@ -11,6 +11,7 @@ zombiegame.preload.prototype = {
     this.game.load.image('h3', 'assets/images/h3.png');
 
     this.game.load.image('bullet', 'assets/images/bullet.png');
+    this.game.load.image('magazine', 'assets/images/magazine.png');
     this.game.load.image('capsule', 'assets/images/capsule.png');
     this.game.load.image('cloud', 'assets/images/clouds.png');
     this.game.load.image('overlay', 'assets/images/overlay.png');
@@ -24,6 +25,7 @@ zombiegame.preload.prototype = {
     this.game.load.image('blood', 'assets/images/blood.png');
     this.game.load.image('bullet1', 'assets/images/bullet1.png');
     this.game.load.image('bullet2', 'assets/images/bullet2.png');
+
 
     this.game.load.spritesheet('player', 'assets/images/player.png', 34, 34);
     this.game.load.spritesheet('zombie', 'assets/images/z1.png', 22, 30);
